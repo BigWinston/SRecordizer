@@ -1,0 +1,18 @@
+﻿
+******* Region templates for new class files
+#region _CONSTANTS_
+#endregion
+#region _DATA_TYPES_
+#endregion
+#region _PUBLIC_PROPERTIES_
+#endregion
+#region _PRIVATE_MEMBERS_
+#endregion
+#region _CONSTRUCTORS_
+#endregion
+#region _PUBLIC_METHODS_
+#endregion
+#region _PRIVATE_METHODS_
+#endregion
+#region _GUI_CALLBACKS_
+#endregion

@@ -240,6 +240,7 @@ namespace SRecordizer.Objects
             catch
             {
                 ExceptionTrap.Trap("Error reading S19 data!");
+                throw;
             }
         }
 

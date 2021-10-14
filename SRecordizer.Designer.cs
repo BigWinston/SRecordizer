@@ -886,6 +886,7 @@
             // SRecordizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AllowDrop = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 795);
             this.Controls.Add(this.toolStripContainer1);
@@ -897,6 +898,8 @@
             this.Text = "SRecordizer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SRecordizer_FormClosing);
             this.Load += new System.EventHandler(this.SRecordizer_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.SRecordizer_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.SRecordizer_DragEnter);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

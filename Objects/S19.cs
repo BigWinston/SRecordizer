@@ -91,6 +91,9 @@ namespace SRecordizer.Objects
                 StreamReader reader = new StreamReader(_FileName);
                 while ((line = reader.ReadLine()) != null)
                 {
+                    /* ignore blank or space line */
+                    if (line.Trim().Length == 0) continue;
+
                     /* create the new line */
                     S19Line newLine = new S19Line(line);
 

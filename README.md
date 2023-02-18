@@ -16,4 +16,4 @@ SRecordizer is an easy to use Motorola S-Record (S19) file editor and error chec
 
 
 
-Latest release (portable only):  [SRecordizer1.1b2.zip](https://github.com/BigWinston/SRecordizer/blob/master/Releases/SRecordizer1.1b2.zip)
+Latest release binary (portable only):  [SRecordizer1.1b2.zip](https://github.com/BigWinston/SRecordizer/blob/master/Releases/SRecordizer1.1b2.zip)

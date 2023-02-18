@@ -74,7 +74,10 @@ namespace SRecordizer
         {
             try
             {
-                s19ListView.SetObjects(_S19Record.SRecordLines);
+                if (_S19Record != null)
+                    s19ListView.SetObjects(_S19Record.SRecordLines);
+                else
+                    throw new Exception("Invalid S19 File");
 
                 /* set the address length to display */
                 int addrDispLen = (int)((_S19Record.MaxAddressLength / 8) * 2);

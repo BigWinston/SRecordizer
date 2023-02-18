@@ -35,7 +35,8 @@ namespace SRecordizer.Objects
                 if (inf.Exists)
                 {
                     _FileName = inf.FullName;
-                    ParseFile();
+                    if (!ParseFile())
+                        throw new Exception("Invalid S19 File!");
                 }
                 else
                 {
@@ -59,7 +60,7 @@ namespace SRecordizer.Objects
             UpdateLineNumbering();
         }
 
-        public void ParseFile()
+        public bool ParseFile()
         {
             try
             {
@@ -72,6 +73,10 @@ namespace SRecordizer.Objects
                 {
                     /* create the new line */
                     S19Line newLine = new S19Line(line);
+
+                    /* if there was a load error, abort */
+                    if (newLine.ErrorInRow == S19Line.S19LineError.LoadError)
+                        return false;
 
                     /* count the occurance of each instruction for analysis */
                     switch (newLine.Instruction)
@@ -100,10 +105,13 @@ namespace SRecordizer.Objects
                     _MaxAddressLength = LEN_24_BIT_ADDR;
                 else
                     _MaxAddressLength = LEN_16_BIT_ADDR;
+
+                return true;
             }
             catch
             {
                 ExceptionTrap.Trap("Error Parsing S19 File!!");
+                return false;
             }
         }
 

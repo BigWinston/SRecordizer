@@ -15,10 +15,6 @@ namespace HabelaLabs.Utility
         Stopwatch _Stopwatch;                
         #endregion
         #region _CONSTRUCTORS_
-        /*********************************************************************/
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public InstantTimer()
         {
             _Stopwatch = new Stopwatch();
@@ -26,11 +22,6 @@ namespace HabelaLabs.Utility
         }
         #endregion
         #region _PUBLIC_METHODS_
-        /*********************************************************************/
-        /// <summary>
-        /// Stops the stopwatch and provides the stopped at value
-        /// </summary>
-        /// <returns>The timer value when stop watch was stopped</returns>
         public ulong Stop()
         {
             _Stopwatch.Stop();

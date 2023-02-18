@@ -24,15 +24,9 @@ namespace SRecordizer.Objects
         #endregion
         #region _PRIVATE_MEMBERS_
         string _FileName;
-        int _MaxAddressLength = 16;   /* number of bits required to correctly address all data */
+        int _MaxAddressLength = 16;
         #endregion
         #region _CONSTRUCTORS_
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="file"></param>
-        /// <param name="newFile"></param>
         public S19(string file, bool newFile)
         {
             if (!newFile)
@@ -52,12 +46,6 @@ namespace SRecordizer.Objects
         }
         #endregion
         #region _PUBLIC_METHODS_
-
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="rowNum"></param>
         public void InsertRow(int rowNum)
         {
             S19Line line = new S19Line();
@@ -65,27 +53,18 @@ namespace SRecordizer.Objects
             UpdateLineNumbering();
         }
 
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="rowNum"></param>
         public void DeleteRow(int rowNum)
         {
             SRecordLines.RemoveAt(rowNum);
             UpdateLineNumbering();
         }
 
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
         public void ParseFile()
         {
             try
             {
                 SRecordLines = new List<S19Line>();
-                bool flag24BitAddrUsed = false, flag32BitAddrUsed = false;  /* the default is 16-bit */
+                bool flag24BitAddrUsed = false, flag32BitAddrUsed = false; 
                 string line;
 
                 StreamReader reader = new StreamReader(_FileName);
@@ -128,19 +107,11 @@ namespace SRecordizer.Objects
             }
         }
 
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Output()
         {
             return Output(_FileName);       
         }
 
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Output(string outFile)
         {
             try
@@ -156,9 +127,7 @@ namespace SRecordizer.Objects
                     }
                 }
                 file.Close();
-                //SRecordizer.LogIt(LogView.LogType.Info, "Saved File \'" + outFile + "\' Ok!   (Time = " + t.Stop() +" ms)");
 
-                /* update the file name to the new file name - will match for save, but not for save as */
                 FileInfo fi = new FileInfo(outFile);
                 _FileName = fi.Name;
 
@@ -171,35 +140,14 @@ namespace SRecordizer.Objects
             }
         }
 
-
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
         public void CheckForErrors()
         {
-            /* Step 1 - Check each line for errors
-                        Finds errors such as :
-                         1/ Incorrect instructions, checksums, sizes data
-                         2/ Length of data, lines
-             */
             foreach (S19Line line in SRecordLines)
             {
                 bool isLineError = line.CheckLineForErrors();
             }
-
-            /* Step 2 - Check the whole virtual memory structure for errors.
-                        Finds errors such as :
-                         1/ Overlapping regions
-                         2/ No terminations
-             */
         }
 
-
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
         public void ResetErrorStates()
         {
             foreach (S19Line line in SRecordLines)
@@ -208,10 +156,6 @@ namespace SRecordizer.Objects
             }
         }
 
-        /*********************************************************************/
-        /// <summary>
-        /// 
-        /// </summary>
         public S19Line SearchAscii(string asciiToSearch, int startLine)
         {
             // Make sure the startLine is valid.
@@ -262,10 +206,6 @@ namespace SRecordizer.Objects
         }
         #endregion
         #region _PRIVATE_METHODS_
-        /*********************************************************************/
-        /// <summary>
-        /// Applies in-order line numbering to each S19 line element
-        /// </summary>
         private void UpdateLineNumbering()
         {
             int cnt = 0;

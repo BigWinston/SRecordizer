@@ -244,7 +244,7 @@ namespace SRecordizer.Objects
             {
                 ExceptionTrap.Trap("Error reading S19 data!");
                 this.ErrorInRow = S19LineError.LoadError;
-                return false;
+                throw;
             }
         }
 

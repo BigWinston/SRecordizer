@@ -48,6 +48,6 @@ Temporary Items
 
 # Other Stuff
 Samples
-bin/
-obj/
-.vsidx
+bin
+obj
+*.vsidx

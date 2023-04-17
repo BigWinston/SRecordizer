@@ -112,18 +112,23 @@ namespace SRecordizer
         /// <summary>
         /// Opens a selected S19 file and starts the parsing for it
         /// </summary>
-        void OpenSrecordFile()
+        /// <param name="fileNames">File names array.</param>
+        void OpenSrecordFile(string[] fileNames = null)
         {
-            OpenFileDialog openFiles = new OpenFileDialog();
-            openFiles.Filter = "S-Record Files|*.s19;*.mhx|All Files (*.*)|*.*";
-            openFiles.FilterIndex = 1;
-            openFiles.Multiselect = true;
-            openFiles.RestoreDirectory = true;
-            openFiles.ShowDialog();
-
-            if (openFiles.FileNames.Length > 0)
+            if (fileNames == null)
             {
-                foreach (string filename in openFiles.FileNames)
+                OpenFileDialog openFiles = new OpenFileDialog();
+                openFiles.Filter = "S-Record Files|*.s19;*.mhx|All Files (*.*)|*.*";
+                openFiles.FilterIndex = 1;
+                openFiles.Multiselect = true;
+                openFiles.RestoreDirectory = true;
+                openFiles.ShowDialog();
+                fileNames = openFiles.FileNames;
+            }
+
+            if (fileNames.Length > 0)
+            {
+                foreach (string filename in fileNames)
                 {
                     SRecordView pane = new SRecordView(filename, false);
                     pane.Show(dockPanel);
@@ -206,6 +211,31 @@ namespace SRecordizer
             mainToolstrip.Location = new Point(0, 0);
             s19Toolstrip.Location = new Point(mainToolstrip.Width, 0);
         }
+
+        /*********************************************************************/
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SRecordizer_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] fileNames = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            OpenSrecordFile(fileNames);
+        }
+
+        /*********************************************************************/
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SRecordizer_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ?
+                       DragDropEffects.All : DragDropEffects.None;
+        }
+
 
         /*********************************************************************/
         /// <summary>

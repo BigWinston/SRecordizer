@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrightIdeasSoftware;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,7 +67,8 @@ namespace SRecordizer.Objects
             AddressError,
             AddressLengthError,
             DataError,
-            ChecksumError
+            ChecksumError,
+            LoadError
         }
         #endregion
         #region _PUBLIC_PROPERTIES_
@@ -166,7 +168,7 @@ namespace SRecordizer.Objects
         /// Updates the S19 line object given a raw data string
         /// </summary>
         /// <param name="line"></param>
-        public void UpdateLine(string line)
+        public bool UpdateLine(string line)
         {
             try
             {
@@ -236,10 +238,12 @@ namespace SRecordizer.Objects
                         this._Instruction = S19Instruction.Unknown;
                         break;
                 }
+                return true;
             }
             catch
             {
                 ExceptionTrap.Trap("Error reading S19 data!");
+                this.ErrorInRow = S19LineError.LoadError;
                 throw;
             }
         }

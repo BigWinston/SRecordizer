@@ -6,8 +6,6 @@ using System.Text;
 
 namespace SRecordizer
 {
-    /***** http://msdn.microsoft.com/en-us/library/ms171565.aspx  - SETTINGS TUTORIAL ******/
-
     class Settings : ApplicationSettingsBase
     {
         [UserScopedSetting()]

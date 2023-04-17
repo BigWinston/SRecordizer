@@ -5,36 +5,17 @@ using SRecordizer;
 
 public class Util
 {
-    /*************************************************************************/
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="inStr"></param>
-    /// <returns></returns>
     public static string RemoveSpaces(string inStr)
     {   
         return inStr.Replace(" ", "");
     }
 
-    /*************************************************************************/
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="test"></param>
-    /// <returns></returns>
     public static bool CheckStringIsHexOnly(string str)
     {
         // For C-style hex notation (0xFF) you can use @"\A\b(0[xX])?[0-9a-fA-F]+\b\Z"
         return System.Text.RegularExpressions.Regex.IsMatch(str, @"\A\b[0-9a-fA-F]+\b\Z");
-
     }
 
-    /*************************************************************************/
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="test"></param>
-    /// <returns></returns>
     public static bool CheckStringIsCorrectByteLength(string str)
     {
         if ((str.Length % 2) == 0)
@@ -43,12 +24,6 @@ public class Util
             return false;
     }
 
-    /*************************************************************************/
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="test"></param>
-    /// <returns></returns>
     public static bool CheckValidSrecInstruction(string str)
     {
         string x = str.ToUpper();
@@ -59,13 +34,6 @@ public class Util
             return false;
     }
 
-    /*************************************************************************/
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="str"></param>
-    /// <param name="chunkSize"></param>
-    /// <returns></returns>
     public static IEnumerable<string> Chunk(string str, int chunkSize)
     {
         if (str.Length < chunkSize)
@@ -90,23 +58,11 @@ public class Util
         }
     }
 
-    /*************************************************************************/
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="value"></param>
-    /// <returns></returns>
     public static bool OnlyHexInString(string value)
     {
         return System.Text.RegularExpressions.Regex.IsMatch(value, @"\A\b[0-9a-fA-F]+\b\Z");
     }
 
-    /*************************************************************************/
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="raw"></param>
-    /// <returns></returns>
     public static string GetAsciiFromBytes(string rawData)
     {
         if ((rawData != "") && (rawData != null))
@@ -129,7 +85,6 @@ public class Util
         else
             return "";
     }
-
 }
 
 

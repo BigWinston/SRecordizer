@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRecordizer", "SRecordizer.csproj", "{BA207EC6-25FF-4CE6-852F-21F038EB3A5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA207EC6-25FF-4CE6-852F-21F038EB3A5B}.Debug|x86.ActiveCfg = Debug|x86
+		{BA207EC6-25FF-4CE6-852F-21F038EB3A5B}.Debug|x86.Build.0 = Debug|x86
+		{BA207EC6-25FF-4CE6-852F-21F038EB3A5B}.Release|x86.ActiveCfg = Release|x86
+		{BA207EC6-25FF-4CE6-852F-21F038EB3A5B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8CCCDC0-02DC-435B-BD97-20EC2CB7DE27}
+	EndGlobalSection
+EndGlobal

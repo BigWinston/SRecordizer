@@ -13,7 +13,3 @@ SRecordizer is an easy to use Motorola S-Record (S19) file editor and error chec
  - Automatic checksum calculation
  - Jump to line/address navigation
  - Easy to use S19 class library to use in other projects
-
-
-
-Latest release binary (portable only):  [SRecordizer1.1b2.zip](https://github.com/BigWinston/SRecordizer/blob/master/Releases/SRecordizer1.1b2.zip)

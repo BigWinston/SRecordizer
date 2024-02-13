@@ -11,12 +11,25 @@ namespace SRecordizer
         private static extern bool SetProcessDPIAware();
 
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            List<string> fileNames = new List<string>();
+
             SetProcessDPIAware();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SRecordizer());
+
+            if (args.Length > 0)
+            {
+                foreach (string arg in args)
+                {
+                    Console.WriteLine("Argument: " + arg);
+                    fileNames.Add(arg);
+                }
+            }
+
+            Application.Run(new SRecordizer(fileNames.ToArray()));
         }
+
     }
 }

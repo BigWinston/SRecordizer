@@ -51,3 +51,4 @@ Samples
 bin
 obj
 *.vsidx
+.vs/SRecordizer/v16/.suo

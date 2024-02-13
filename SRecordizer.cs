@@ -36,11 +36,13 @@ namespace SRecordizer
         /// <summary>
         /// Constructor
         /// </summary>
-        public SRecordizer()
+        public SRecordizer(string[] fileNames = null)
         {
             InitializeComponent();
 
             _SRecPanes = new List<SRecordView>();  /* intialize the document management structure */
+            OpenSrecordFile(fileNames);
+
             toolStripContainer1.BringToFront();  /* ensure the toolbars are always on top */
             s19Toolstrip.AutoSize = true;
             //OpenLogWindow(true);  /* create the log window */
